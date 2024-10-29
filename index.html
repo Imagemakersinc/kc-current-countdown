@@ -42,9 +42,10 @@
 <script>
     
     //JavaScript Function for CountDown Timer, In countdown.js file
-
-countdown("11/9/2024  11:00:00 AM", callback) // Date format ('MM/DD/YYYY  HH:MM:SS TT');
-
+const centralDateTime = new Date('2024-11-09T11:00:00 CDT'); 
+const utcDateTime = new Date(centralDateTime.getTime() + (centralDateTime.getTimezoneOffset() * 60 * 1000));
+// countdown("11/9/2024  11:00:00 AM", callback) // Date format ('MM/DD/YYYY  HH:MM:SS TT');
+countdown(utcDateTime.format('DD/MM/yyyy hh:mm'));
 function callback() {
   alert("Teal Time") //Callback Function Definition
 }
