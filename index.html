@@ -43,20 +43,18 @@
     
     //JavaScript Function for CountDown Timer, In countdown.js file
 // Create a new Date object representing the given date and time in Central Time
-const centralTime = new Date('2024-11-09T11:00:00 CDT'); 
-
+const centralTime = new Date("11/9/2024  11:00:00 AM");
 // Convert the Central Time to UTC time
 const utcTime = new Date(centralTime.getTime() - centralTime.getTimezoneOffset() * 60000);
 
 // Format the UTC time in the desired format (DD/MM/yyyy hh:mm)
 const formattedDate = utcTime.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' });
-const formattedTime = utcTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false });
-const formattedDateTime = formattedDate + ' ' + formattedTime;
+const formattedTime = utcTime.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
 
-// Print the formatted date and time to the console
-console.log(formattedDateTime);
+const formattedDateTime = formattedDate + ' ' + formattedTime;
 // countdown("11/9/2024  11:00:00 AM", callback) // Date format ('MM/DD/YYYY  HH:MM:SS TT');
-countdown(utcDateTime.format('DD/MM/yyyy hh:mm'));
+countdown(formattedDateTime);
+  
 function callback() {
   alert("Teal Time") //Callback Function Definition
 }
