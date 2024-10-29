@@ -75,9 +75,9 @@ function countdown(endT, callback) {
       minutes = 0
       sec = 0
       display(days, hours, minutes, sec)
-      if (typeof callback === "function") {
-        callback()
-      }
+      // if (typeof callback === "function") {
+       // callback()
+      // }
     } else {
       days = parseInt(remaining / 86400)
       remaining = remaining % 86400
