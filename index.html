@@ -1,0 +1,110 @@
+<style type="text/css">/* CSS for CountDown Timer,Notice I have added labels (days,hours,minutes,seconds) using :After pseudo class, you can add these in HTML itself*/
+.countDown {
+  display: flex;
+  width: 688px;
+  height: 768px;
+  background-image: url("https://www.kansascitycurrent.com/uploads/ed434e81716d479c/CountdownAd_PnL_BG1.png");
+}
+
+.countDown span {
+  color: #00feff;
+  padding-top: 450px;
+  font-size: 90px;
+  margin-left: 50px;
+  margin-right: 12px;
+  align-content: center;
+  font-family: Arial;
+}
+
+#days:before,
+#hours:before,
+#minutes:before,
+#seconds:before {
+  font-size: 18.61px;
+  display: block;
+  color: #00feff;
+  text-align: center;
+  font-family: Arial;
+}
+#days:before {
+  content: "Days";
+}
+#minutes:before {
+  content: "Minutes";
+}
+#hours:before {
+  content: "Hours";
+}
+#seconds:before {
+  content: "Seconds";
+</style>
+<div class="countDown"><span id="days">00</span> <!-- Remaining Days,id="days"--> <span id="hours">00</span> <!-- Remaining hours ,id="hours"--> <span id="minutes">00</span> <!-- Remaining minutes,id="minutes"--> <span id="seconds">00</span> <!-- Remaining minutes,id="minutes"--></div>
+<script>
+    
+    //JavaScript Function for CountDown Timer, In countdown.js file
+
+countdown("11/9/2024  11:00:00 AM", callback) // Date format ('MM/DD/YYYY  HH:MM:SS TT');
+
+function callback() {
+  alert("Teal Time") //Callback Function Definition
+}
+//JavaScript Function for CountDown Timer, In countdown.js file
+function countdown(endT, callback) {
+  var days, hours, minutes, sec, timer
+
+  end = new Date(endT)
+
+  end = end.getTime() //Get initial Date in Milliseconds,
+  if (isNaN(end)) {
+    alert(
+      '@ countdown.js @  "Invalid Date", valid format- mm/dd/yyyy hh:mm:ss TT ',
+    )
+    return
+  }
+
+  timer = setInterval(calculate, 1000) //Timer to calculate remaining time
+
+  function calculate() {
+    var current = new Date()
+    var remaining = parseInt((end - current.getTime()) / 1000) //remaining seconds,
+
+    if (remaining <= 0) {
+      clearInterval(timer)
+      days = 0
+      hours = 0
+      minutes = 0
+      sec = 0
+      display(days, hours, minutes, sec)
+      if (typeof callback === "function") {
+        callback()
+      }
+    } else {
+      days = parseInt(remaining / 86400)
+      remaining = remaining % 86400
+      hours = parseInt(remaining / 3600)
+      remaining = remaining % 3600
+      minutes = parseInt(remaining / 60)
+      remaining = remaining % 60
+      sec = parseInt(remaining)
+      display(days, hours, minutes, sec)
+    }
+  }
+
+  //Function For displaying Results in HTML page with specific ID's
+  function display(days, hours, minutes, sec) {
+    var dl = days.toString().length
+    if (dl == "1") {
+      sl = 2
+    } else {
+      if (isNaN(dl)) {
+        sl = 3
+      }
+      sl = dl
+    }
+    document.getElementById("days").innerHTML = ("00" + days).slice(-sl)
+    document.getElementById("hours").innerHTML = ("0" + hours).slice(-2)
+    document.getElementById("minutes").innerHTML = ("0" + minutes).slice(-2)
+    document.getElementById("seconds").innerHTML = ("0" + sec).slice(-2)
+  }
+}
+</script>
