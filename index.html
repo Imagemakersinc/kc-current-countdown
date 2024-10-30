@@ -41,7 +41,8 @@
 <div class="countDown"><span id="days">00</span> <!-- Remaining Days,id="days"--> <span id="hours">00</span> <!-- Remaining hours ,id="hours"--> <span id="minutes">00</span> <!-- Remaining minutes,id="minutes"--> <span id="seconds">00</span> <!-- Remaining minutes,id="minutes"--></div>
 <script>
 
-countdown("11/9/2024  11:00:00 AM", callback) // Date format ('MM/DD/YYYY  HH:MM:SS TT');
+  // Event time is at 11 AM, but due to daylight savings time I have adjusted it back an hour
+countdown("11/9/2024  10:00:00 AM", callback) // Date format ('MM/DD/YYYY  HH:MM:SS TT');
   
 function callback() {
   alert("Teal Time") //Callback Function Definition
