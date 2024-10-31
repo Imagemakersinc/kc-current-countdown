@@ -1,15 +1,21 @@
 <style type="text/css">/* CSS for CountDown Timer,Notice I have added labels (days,hours,minutes,seconds) using :After pseudo class, you can add these in HTML itself*/
-.countDown {
-  display: flex;
+.background {
+  position: relative;
   width: 688px;
   height: 768px;
   margin: -8 !important;
   background-image: url("https://www.kansascitycurrent.com/uploads/ed434e81716d479c/CountdownAd_PnL_BG1.png");
 }
 
+.countDown {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  margin-bottom: 6em;
+}
+
 .countDown span {
   color: #00feff;
-  padding-top: 450px;
   font-size: 90px;
   margin-left: 50px;
   margin-right: 12px;
@@ -40,7 +46,14 @@
   content: "Seconds";
 }
 </style>
-<div class="countDown"><span id="days">00</span> <!-- Remaining Days,id="days"--> <span id="hours">00</span> <!-- Remaining hours ,id="hours"--> <span id="minutes">00</span> <!-- Remaining minutes,id="minutes"--> <span id="seconds">00</span> <!-- Remaining minutes,id="minutes"--></div>
+<div class="background">
+<div class="countDown">
+  <span id="days">00</span>
+  <span id="hours">00</span> 
+  <span id="minutes">00</span>
+  <span id="seconds">00</span>
+</div>
+</div>
 <script>
 
   // Event time is at 11 AM, but due to daylight savings time I have adjusted it back an hour
