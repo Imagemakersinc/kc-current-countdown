@@ -1,37 +1,39 @@
 <style type="text/css">/* CSS for CountDown Timer,Notice I have added labels (days,hours,minutes,seconds) using :After pseudo class, you can add these in HTML itself*/
 .background {
-  position: relative;
-  width: 688px;
+  background-image: url("https://www.kansascitycurrent.com/doccenter/7546ff8e387648d79f6c3bbcc78bebf5");
   height: 768px;
   margin: -8 !important;
-  background-image: url("https://www.kansascitycurrent.com/uploads/ed434e81716d479c/CountdownAd_PnL_BG1.png");
+  position: relative;
+  width: 688px;
+  /* background-image: url("https://www.kansascitycurrent.com/uploads/ed434e81716d479c/CountdownAd_PnL_BG1.png"); */
 }
 
 .countDown {
-  position: absolute;
-  display: flex;
   bottom: 0;
-  margin-bottom: 6em;
+  display: flex;
+  margin-bottom: 9.3em;
+  margin-left: 1.1em;
+  position: absolute;
 }
 
 .countDown span {
-  color: #00feff;
-  font-size: 90px;
-  margin-left: 50px;
-  margin-right: 12px;
   align-content: center;
+  color: #00feff;
+  font-size: 85px;
   font-family: Arial;
+  margin-left: 48px;
+  margin-right: 12px;
 }
 
 #days:before,
 #hours:before,
 #minutes:before,
 #seconds:before {
-  font-size: 18.61px;
-  display: block;
   color: #00feff;
-  text-align: center;
+  display: block;
   font-family: Arial;
+  font-size: 18.61px;
+  text-align: center;
 }
 #days:before {
   content: "Days";
